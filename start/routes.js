@@ -16,5 +16,9 @@
 const Route = use('Route')
 
 Route.get('/', ({ request }) => {
-  return { greeting: 'Hello world in JSON' }
+  return { greeting: 'API Taman Kode-Kode' }
 })
+
+Route.post('/auth', 'UserController.auth') 
+
+Route.resource('user', 'UserController')
