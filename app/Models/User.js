@@ -16,7 +16,12 @@ class User extends Model {
         userInstance.password = await Hash.make(userInstance.password)
       }
       userInstance.username = userInstance.username || userInstance.email
+      userInstance.verified = false
     })
+  }
+
+  static get hidden() {
+    return ['password']
   }
 
   /**
