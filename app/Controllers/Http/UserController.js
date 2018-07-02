@@ -1,6 +1,9 @@
 'use strict'
 
+const axios = require('axios')
+
 const Mail = use('Mail')
+const Encryption = use('Encryption')
 
 const User = use('App/Models/User')
 
@@ -47,7 +50,7 @@ class UserController {
     })
   }
 
-  async verify ({ request, response, auth }) {
+  async sendVerify ({ request, response, auth }) {
     const { authorization } = request.headers()
     let user = ''
     try {
@@ -72,6 +75,22 @@ class UserController {
           message: 'Gagal mengirim email. Periksa kembali email Anda!'
         })
       }
+    } catch (e) {
+      return response.status(400).json({
+        code: 'UNAUTH',
+        message: 'Anda tidak diizinkan.'
+      })
+    }
+  }
+
+  async verifyCallback ({ request, response, auth }) {
+    try {
+      const { token } = request.params
+      try {
+        const data = (await axios.post('http://35.231.229.161:3000', {}, {
+          "Authorization": `Bearer ${token}`
+        })).data
+      } catch (e) {}
     } catch (e) {
       return response.status(400).json({
         code: 'UNAUTH',
