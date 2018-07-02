@@ -25,3 +25,4 @@ Route.resource('user', 'UserController')
 
 Route.post('/user/verify', 'UserController.sendVerify')
 Route.get('/user/verify/:token', 'UserController.verifyCallback')
+Route.post('/user/verified', 'UserController.verify')
