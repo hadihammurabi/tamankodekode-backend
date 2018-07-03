@@ -85,26 +85,17 @@ class UserController {
     }
   }
 
-  async verifyCallback ({ request, response, auth }) {
+  async verifyCallback ({ request, response, view, auth }) {
     const { token } = request.params
-    try {
-      const data = await got('http://localhost:3000/user/verified', {
-        method: 'POST',
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      })
-      if(data.body.verified) {
-        response.redirect('https://35.231.229.161/')
-      }
-    } catch (e) {}
+    return response.send(view.render('verify', {token}))
   }
 
   async verify ({ request, response, auth }) {
-    const user = await auth.getUser()
-    user.verified = true
-    //await user.save()
-    return user
+    let user = await auth.getUser()
+    const update = await User.query().where('email', user.email).update({verified: 'TRUE'})
+    return {
+      message: 'success'
+    }
   }
 
 }
