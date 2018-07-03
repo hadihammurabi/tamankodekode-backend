@@ -70,6 +70,8 @@ class UserController {
           message: 'Email verifikasi telah dikirim.'
         }
       } catch (e) {
+        console.log(e)
+        return e
         return response.status(400).json({
           code: 'FAIL_MAIL',
           message: 'Gagal mengirim email. Periksa kembali email Anda!'
