@@ -23,6 +23,7 @@ Route.post('/auth', 'UserController.auth')
 
 Route.resource('user', 'UserController')
 Route.resource('kategori', 'KategoriController')
+Route.resource('tutorial', 'TutorialController')
 
 Route.post('/user/verify', 'UserController.sendVerify')
 Route.get('/user/verify/:token', 'UserController.verifyCallback')
