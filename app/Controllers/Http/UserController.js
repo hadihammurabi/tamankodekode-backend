@@ -63,7 +63,7 @@ class UserController {
         await Mail.send('email.verify', data, message => {
           message
               .to(user.email)
-              .from('no-reply@tamankodekode.org')
+              .from('tamankodekode@gmail.com')
               .subject('Verifikasi akun Taman Kode-Kode')
         })
         return {
