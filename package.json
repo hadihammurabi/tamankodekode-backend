@@ -25,6 +25,7 @@
     "@adonisjs/ignitor": "^2.0.6",
     "@adonisjs/lucid": "^5.0.4",
     "@adonisjs/mail": "^3.0.6",
+    "@adonisjs/websocket": "^1.0.10",
     "got": "^8.3.1",
     "pg": "^7.4.3"
   },

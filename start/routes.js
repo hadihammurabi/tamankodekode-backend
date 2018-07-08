@@ -28,3 +28,7 @@ Route.resource('tutorial', 'TutorialController')
 Route.post('/user/verify', 'UserController.sendVerify')
 Route.get('/user/verify/:token', 'UserController.verifyCallback')
 Route.post('/user/verified', 'UserController.verify')
+
+Route.get('/chat', ({ response, view }) => {
+  return response.send(view.render('chat'))
+})
