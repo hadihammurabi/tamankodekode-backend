@@ -92,7 +92,7 @@ class UserController {
 
   async verify ({ request, response, auth }) {
     let user = await auth.getUser()
-    const update = await User.query().where('email', user.email).update({verified: 'TRUE'})
+    const update = await User.query().where('email', user.email).update({verified: true})
     return {
       message: 'success'
     }
