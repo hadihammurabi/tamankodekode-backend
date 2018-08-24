@@ -1,9 +1,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script>
 const token = window.location.pathname.split('/')[3]
-const data = axios.post('http://192.3.130.45:3000/user/verified', {}, {
+const data = axios.post('http://192.3.130.45:3333/user/verified', {}, {
   headers: {
-    Authorization: 'Bearer ' + token
+    authorization: 'Bearer ' + token
   }
 })
 .then(function(res) {
