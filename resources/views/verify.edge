@@ -1,14 +1,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script>
 const token = window.location.pathname.split('/')[3]
-const data = axios.post('http://35.231.229.161:3000/user/verified', {}, {
+const data = axios.post('http://192.3.130.45:3000/user/verified', {}, {
   headers: {
     Authorization: 'Bearer ' + token
   }
 })
 .then(function(res) {
     if (res.data.message === 'success') {
-      window.location = 'http://35.231.229.161'
+      window.location = 'http://192.3.130.45'
     }
 })
 .catch(function(e) {
